@@ -31,7 +31,7 @@ class RefreshToken
             return $this->refreshTokenIfNeeded($token, $options)->then(function (array $cred) use ($request, $handler, $options) {
                 $this->tokenStorage->saveToken($cred);
                 $request = $request->withHeader('Authorization', 'Bearer ' . $cred['access_token'])
-                    ->withAddedHeader('Content-Type', 'application/json');
+                ->withAddedHeader('Accept', 'application/json');
                 return $handler($request, $options);
             })->then(function (ResponseInterface $response) {
                 if ($response->getStatusCode() >= 400) {
