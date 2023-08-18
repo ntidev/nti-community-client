@@ -130,11 +130,15 @@ $client->createUser([
             'type'=>'password',
             'value'=>'1234',
         ],
+    'sso': {
+            'facebook': '333ABBDDD',
+            'oauth2': '4545ag63274'
+       }
     ],
 ]);
 
 $client->updateUser([
-    'id' => '39839a9b-de08-4d2c-b91a-a6ce2595b1f3',
+    'id' => 1,
     'username' => 'test',
     'email' => 'test@test.com',
     'enabled' => true,
@@ -147,7 +151,7 @@ $client->updateUser([
 ]);
 
 $client->deleteUser([
-    'id' => '39839a9b-de08-4d2c-b91a-a6ce2595b1f3'
+    'id' => 1
 ]);
 */
 ```
@@ -268,13 +272,13 @@ $client = CommunityClient::factory([
 
 # Supported APIs
 
-## [Attack Detection](https://www.keycloak.org/docs-api/7.0/rest-api/index.html#_attack_detection_resource)
-
  ## [Users]()
 
 | API                                                                                                                                                                |    Function Name    | Supported |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------:|:---------:|
-| Create a new user Username must be unique.                                                                                                                         |     createUser      |    ✔️     |
+| Returns a Json User. The profile_field option in the request body provides a way to add profile fields to the registration.                                        
+| The key refers to an existing profile field id.                                                                                                                    |     createUser      |    ✔️     |
+| Note that profile fields can be set as mandatory registration fields.                                                                                              
 | Get users Returns a list of users, filtered according to query parameters                                                                                          |      getUsers       |    ✔️     |
 | GET /{realm}/users/count                                                                                                                                           |    getUserCount     |    ✔️     |
 | Get representation of the user                                                                                                                                     |       getUser       |   ️️️✔️   |
@@ -299,10 +303,3 @@ $client = CommunityClient::factory([
 | Send an email-verification email to the user An email contains a link the user can click to verify their email address.                                            |   sendVerifyEmail   |    ✔️     |
 | Get sessions associated with the user                                                                                                                              |   getUserSessions   |    ✔️     |
 | Get credentials associated with the user                                                                                                                           | getUserCredentials  |    ✔️     |
-
- ## [Root]()
-
-| API                                                                                        | Function Name | Supported |
-|--------------------------------------------------------------------------------------------|:-------------:|:---------:|
-| Get themes, social providers, auth providers, and event listeners available on this server |               |     ❌     |
-| CORS preflight                                                                             |               |     ❌     |
