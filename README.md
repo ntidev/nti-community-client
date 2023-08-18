@@ -45,28 +45,54 @@ $client->getUsers();
 //Result
 // Array of users
 /*
-[
-     [
-       "id" => "39839a9b-de08-4d2c-b91a-a6ce2595b1f3",
-       "createdTimestamp" => 1571663375749,
-       "username" => "admin",
-       "enabled" => true,
-       "totp" => false,
-       "emailVerified" => false,
-       "disableableCredentialTypes" => [
-         "password",
-       ],
-       "requiredActions" => [],
-       "notBefore" => 0,
-       "access" => [
-         "manageGroupMembership" => true,
-         "view" => true,
-         "mapRoles" => true,
-         "impersonate" => true,
-         "manage" => true,
-       ],
-     ],
-   ]
+Array
+(
+    [0] => Array
+        (
+            'userid' => 1
+            'usergroupid' => 0
+            'membergroupids' =>
+            'displaygroupid' => 0
+            'username' => Anthony
+            'email' => no-reply+anthony@insided.com
+            'posts' => 5
+            'deleted_posts' => 0
+            'options' => 1024
+            'autosubscribe' => 1
+            'customoptions' => 7
+            'topics' => 7
+            'solved' => 1
+            'ipaddress' =>
+            'usertitle' => Pioneer
+            'customtitle' => 1
+            'pmunread' => 1
+            'subscriptions' => 22
+            'pmtotal' => 1
+            'following' => 0
+            'followers' => 0
+            'avatar' => https://uploads-us-west-2.insided.com/alliant-en-sandbox/icon/200x200/4032f252-3c4a-46d7-83a0-5733ca2c3418.png
+            'signature' =>
+            'reputation' => 2
+            'lastvisit' => 1614769533
+            'lastactivity' => 1606228559
+            'insided_sso_customeruid' =>
+            'reviewcount' => 0
+            'ratingcount' => 0
+            'lastpostid' => 127
+            'lastpost' => 1614771269
+            'joindate' => 1403085355
+            'likes' => 2
+            'likes_given' => 3
+            'blogposts' => 0
+            'researches' => 0
+            'rank_id' => 5
+            'rank_name' => Inspiring
+            'rank_display_name' => Inspiring
+            'rank_avatar_icon' =>
+            'rank_avatar_icon_thumb' =>
+            'is_moderator' => 0
+      )
+)
 
 
 $client->getUser([
@@ -74,81 +100,82 @@ $client->getUser([
 ]);
 
 //Result
-// Object
 
-{
-  "userid": "3",
-  "usergroupid": "0",
-  "membergroupids": "",
-  "displaygroupid": "0",
-  "username": "Eliza",
-  "email": "no-reply+eliza@insided.com",
-  "posts": "3",
-  "deleted_posts": "0",
-  "options": "1024",
-  "autosubscribe": "1",
-  "customoptions": "7",
-  "topics": "11",
-  "solved": "1",
-  "ipaddress": "54.182.244.102",
-  "usertitle": "",
-  "customtitle": "0",
-  "pmunread": "0",
-  "subscriptions": "22",
-  "pmtotal": "1",
-  "following": "0",
-  "followers": "0",
-  "avatar": "https://uploads-us-west-2.insided.com/alliant-en-sandbox/icon/200x200/e481abd7-8942-4617-974a-0fa6c9d3a403.png",
-  "signature": "",
-  "reputation": "2",
-  "lastvisit": "1662977253",
-  "lastactivity": "1662982021",
-  "insided_sso_customeruid": null,
-  "reviewcount": "0",
-  "ratingcount": "0",
-  "lastpostid": "142",
-  "lastpost": "1662977570",
-  "joindate": "1563816419",
-  "likes": "2",
-  "likes_given": "1",
-  "blogposts": "0",
-  "researches": "0",
-  "rank_id": "8",
-  "rank_name": "New Participant",
-  "rank_display_name": "New Participant",
-  "rank_avatar_icon": null,
-  "rank_avatar_icon_thumb": null,
-  "is_moderator": "0"
-}
+Array(
+    'userid' => 3
+    'usergroupid' => 0
+    'membergroupids' =>
+    'displaygroupid' => 0
+    'username' => Eliza
+    'email' => no-reply+eliza@insided.com
+    'posts' => 3
+    'deleted_posts' => 0
+    'options' => 1024
+    'autosubscribe' => 1
+    'customoptions' => 7
+    'topics' => 11
+    'solved' => 1
+    'ipaddress' => 54.182.244.102
+    'usertitle' =>
+    'customtitle' => 0
+    'pmunread' => 0
+    'subscriptions' => 22
+    'pmtotal' => 1
+    'following' => 0
+    'followers' => 0
+    'avatar' => https://uploads-us-west-2.insided.com/alliant-en-sandbox/icon/200x200/e481abd7-8942-4617-974a-0fa6c9d3a403.png
+    'signature' =>
+    'reputation' => 2
+    'lastvisit' => 1662977253
+    'lastactivity' => 1662982021
+    'insided_sso_customeruid' =>
+    'reviewcount' => 0
+    'ratingcount' => 0
+    'lastpostid' => 142
+    'lastpost' => 1662977570
+    'joindate' => 1563816419
+    'likes' => 2
+    'likes_given' => 1
+    'blogposts' => 0
+    'researches' => 0
+    'rank_id' => 8
+    'rank_name' => New Participant
+    'rank_display_name' => New Participant
+    'rank_avatar_icon' =>
+    'rank_avatar_icon_thumb' =>
+    'is_moderator' => 0
+)
 
-$client->createUser([
-    'username' => 'test',
-    'email' => 'test@test.com',
-    'enabled' => true,
-    'credentials' => [
-        [
-            'type'=>'password',
-            'value'=>'1234',
-        ],
-    'sso': {
-            'facebook': '333ABBDDD',
-            'oauth2': '4545ag63274'
-       }
-    ],
-]);
+$client->createUser(['data' => [
+            'email' => 'test@test.com',
+            'username' => 'test',
+            'password' => true,
+            'user_role' => [
+                    'roles.registered',
+                    'Option A',
+                    'Option B',
+                    'Other'
+                ],
+                'profile_field' => [
+                    '12' => 'Smith',
+                    '34' => 'John'
+                ],
+                'sso' => [
+                    'facebook' => '333ABBDDD',
+                    'oauth2' => '4545ag63274'],
+                ]]);
 
-$client->updateUser([
-    'id' => 1,
-    'username' => 'test',
-    'email' => 'test@test.com',
-    'enabled' => true,
-    'credentials' => [
-        [
-            'type'=>'password',
-            'value'=>'1234',
-        ],
-    ],
-]);
+//Result
+Array(
+    'user' => Array(
+            'username' => 'test'
+            'email' => 'test@test.com',
+            'joindate' => '1692394871'
+            'userid' => 25
+            'sso' => Array()
+        )
+)
+
 
 $client->deleteUser([
     'id' => 1

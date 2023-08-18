@@ -50,43 +50,42 @@ return array(
             'description' => 'Returns a Json User. The profile_field option in the request body provides a way to add profile fields to the registration. The key refers to an existing profile field id. Note that profile fields can be set as mandatory registration fields.',
             'httpMethod' => 'POST',
             'parameters' => array(
-                '_returnIterable' => array(
-                    'location'    => 'query',
-                    'type'        => 'boolean',
-                    'required'    => false,
-                ),
-                'page' => array(
-                    'location'    => 'query',
-                    'type'        => 'integer',
-                    'required'    => false,
-                ),
-                'email' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => true
-                ),
-                'username' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => true
-                ),
-                'password' => array(
-                    'location' => 'json',
-                    'type' => 'string',
-                    'required' => true
-                ),
-                'sso' => array(
+                'data' => array(
                     'location' => 'json',
                     'type' => 'object',
                     'required' => false,
                     'properties' => array(
-                        'oauth2' => array(
+                        'email' => array(
                             'location' => 'json',
                             'type' => 'string',
-                            'required' => false
+                            'required' => true
+                        ),
+                        'username' => array(
+                            'location' => 'json',
+                            'type' => 'string',
+                            'required' => true
+                        ),
+                        'password' => array(
+                            'location' => 'json',
+                            'type' => 'string',
+                            'required' => true
+                        ),
+                        'sso' => array(
+                            'location' => 'json',
+                            'type' => 'object',
+                            'required' => false,
+                            'properties' => array(
+                                'oauth2' => array(
+                                    'location' => 'json',
+                                    'type' => 'string',
+                                    'required' => false
+                                ),
+                            ),
                         ),
                     ),
                 ),
+
+
             )
         ),
         'updateUser' => array(
